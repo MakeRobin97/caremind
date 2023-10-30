@@ -1,19 +1,13 @@
 "use client";
 
 import styled from "styled-components";
+import FeedItem from "@/application/Feeditem";
 
 function Home() {
   return (
     <HomeStyle>
       <HomeTitle>피드</HomeTitle>
-      {FEED_DATA.map((data) => {
-        return (
-          <FeedBox key={data.id}>
-            <Title>{data.title}</Title>
-            <Nickname>{data.nickname}</Nickname>
-          </FeedBox>
-        );
-      })}
+      <FeedItem data={FEED_DATA} />
       <UserChoiceBox>
         <Prev>이전글</Prev>
         <Write>글쓰기</Write>
@@ -28,7 +22,6 @@ export default Home;
 const HomeStyle = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
 `;
 
 const HomeTitle = styled.div`
@@ -37,32 +30,14 @@ const HomeTitle = styled.div`
   justify-content: center;
   display: flex;
   align-items: center;
-`;
-
-const FeedBox = styled.div`
-  width: 500px;
-  height: 100px;
-  border-radius: 5px;
-  background-color: #7752fe;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px 0 20px;
-  cursor: pointer;
-`;
-const Title = styled.div`
-  font-size: 20px;
-  font-weight: 700;
-`;
-const Nickname = styled.div`
-  font-weight: 500;
+  margin-bottom: 15px;
 `;
 
 const UserChoiceBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 15px;
 `;
 
 const Prev = styled.div`
@@ -101,13 +76,7 @@ const Next = styled.div`
   color: white;
 `;
 
-interface feedDataType {
-  id: number;
-  title: string;
-  nickname: string;
-}
-
-const FEED_DATA: feedDataType[] = [
+const FEED_DATA = [
   { id: 1, title: "아산병원 어떤가요?", nickname: "간호사살려" },
   { id: 2, title: "물리치료 교육 어디서 받나요?", nickname: "신의손" },
   { id: 3, title: "진상 환자 어떻게 해결하냐..", nickname: "딸기바나나" },
