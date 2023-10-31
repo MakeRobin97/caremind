@@ -1,10 +1,9 @@
 "use client";
 
 import styled from "styled-components";
+import React from "react";
 
-function FeedItem(props: { data: feedDataType[] }) {
-  const { data } = props;
-
+const FeedItem: React.FC<{ data: feedDataType[] }> = ({ data }) => {
   return (
     <FeedItemStyle>
       {data.map((data) => {
@@ -17,7 +16,7 @@ function FeedItem(props: { data: feedDataType[] }) {
       })}
     </FeedItemStyle>
   );
-}
+};
 
 export default FeedItem;
 

@@ -1,9 +1,10 @@
 "use client";
 
+import { NextPage } from "next";
 import styled from "styled-components";
 import FeedItem from "@/application/Feeditem";
 
-function Home() {
+const Home: NextPage = () => {
   return (
     <HomeStyle>
       <HomeTitle>피드</HomeTitle>
@@ -15,7 +16,7 @@ function Home() {
       </UserChoiceBox>
     </HomeStyle>
   );
-}
+};
 
 export default Home;
 
